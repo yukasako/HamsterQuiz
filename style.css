@@ -1,0 +1,48 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    #hamster{
+        height: 40vh;
+    }
+
+    #seed{
+        font-size: 30px;
+    }
+
+    #question{
+        font-size: 30px;
+    }
+
+    #quiz{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+p{
+    text-align: center;
+}
+
+#buttons{
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+button{
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    border: none;
+    border-radius: 50px;
+}
+button:hover{
+    background-color: lightblue;
+}
+
+#next{
+    margin: 50px;
+}
