@@ -52,7 +52,7 @@ let btn3 = document.querySelector("#button3")
 //　次の質問へ
 let nextBtn = document.querySelector("#next")
 
-//　最初はボタンをオフにしておく。
+//　最初はボタンをオフにしておく
 quizBtns.forEach((btn)=>{
     btn.disabled = true;
 })
@@ -87,6 +87,7 @@ nextBtn.addEventListener("click", () => {
         nextBtn.style.display = "none"
 
         let result = document.createElement("h2");
+        result.style.textAlign = "center";
         document.body.append(result);
         if(seeds.childElementCount === 5){
             hamster.setAttribute('src', "./img/happyHamster.jpeg")
@@ -113,7 +114,7 @@ quizBtns.forEach((btn) => {
             hamster.setAttribute('src', "./img/happyHamster.jpeg")
             let aSeed = document.createElement("img");
             aSeed.setAttribute('src', "./img/seed.jpeg");
-            aSeed.style.width = "50px";
+            aSeed.style.width = "70px";
             seeds.append(aSeed);
         }
         else {
