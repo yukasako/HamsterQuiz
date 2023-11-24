@@ -1,9 +1,11 @@
+/* クイズ内容 */
+
 let Questions = [
     {
         Q: "Which hamster is the smallest?",
         button1: ["Golden", false],
-        button2: ["Djungarian", true],
-        button3: ["Molmot", false]
+        button2: ["Roborovski", true],
+        button3: ["Djungarian", false]
     },
     {
         Q: "How long is the lifespan of a hamster?",
@@ -31,41 +33,44 @@ let Questions = [
     }
 ];
 
-//　ハムスター画像
+/* 要素指定 */
+
+//　ハムスター画像(img)
 let hamster = document.querySelector("#hamster")
 
-//　たね
+//　たね置き場(div)
 let seeds = document.querySelector("#seed")
 
-// // Quiz Div
+// // Quiz(div)
 let quizDiv = document.querySelector("#quiz")
 
-// 質問のpタグ
+// 質問文表示(p)
 let question = document.querySelector("#question")
 
-//　回答ボタンたち３個
+//　回答ボタンたち３個(div, button)
 let quizBtns = document.querySelectorAll("[name='quiz']")
 let btn1 = document.querySelector("#button1")
 let btn2 = document.querySelector("#button2")
 let btn3 = document.querySelector("#button3")
 
-//　次の質問へ
+/* Nextボタンの設定 */
+
+// Nextボタン(button)
 let nextBtn = document.querySelector("#next")
-
-//　最初はボタンをオフにしておく
-quizBtns.forEach((btn)=>{
-    btn.disabled = true;
-})
-
 // 次の質問へをクリックしたらQuestionsから値をひっぱる
 let i = 0;
 nextBtn.addEventListener("click", () => {
+    //回答しないと次に進めないようNextボタンをオフ
+    nextBtn.disabled = true;
+
+    //クイズボタンたちをオンに
     hamster.setAttribute('src', "./img/hamster.jpeg")
     quizBtns.forEach((btn)=>{
         btn.disabled = false;
         btn.style.background = "lightgrey";
     })
 
+    //Quiz Arrayの内容を引用してく
     if (i < Questions.length) {
         nextBtn.innerText = "Next";
         question.innerText = Questions[i].Q;
@@ -81,42 +86,60 @@ nextBtn.addEventListener("click", () => {
 
         i++;
     }
-    else {
+    else { //Array内の質問完了
         nextBtn.innerText = "DONE!"
         quizDiv.style.display = "none";
         nextBtn.style.display = "none"
 
+        // 結果発表の場所を設定
         let result = document.createElement("h2");
         result.style.textAlign = "center";
         document.body.append(result);
+
+        // タネの数によって評価
         if(seeds.childElementCount === 5){
             hamster.setAttribute('src', "./img/happyHamster.jpeg")
-            result.innerText = "Amazing! You answered all questions!";
+            result.innerText = "Amazing!\n You answered all questions!";
         }
-        else if(seeds.childElementCount > 2){
-            result.innerText = "Great! You got " + seeds.childElementCount + " seeds!";
+        else if(seeds.childElementCount === 4){
+            hamster.setAttribute('src', "./img/happyHamster.jpeg")
+            result.innerText = "Great!\n You got " + seeds.childElementCount + " seeds!";
+        }
+        else if(seeds.childElementCount >= 2){
+            result.innerText = "Nice!\n You got " + seeds.childElementCount + " seeds!";
         }
         else if(seeds.childElementCount === 1){
             hamster.setAttribute('src', "./img/sadHamster.jpeg")
-            result.innerText = "Oops. Only " + seeds.childElementCount + " seed. I am hungryyyy!";
+            result.innerText = "Oh no.\n Only " + seeds.childElementCount + " seed.\n I am hungryyyy!";
         }
         else{
             hamster.setAttribute('src', "./img/sadHamster.jpeg")
-            result.innerText = "Oops. Only " + seeds.childElementCount + " seeds. I am hungryyyy!";
+            result.innerText = "What!? 0 seed?\n Where is my food hooman!?";
         }
     }
+})
+
+/* 回答ボタンの設定 */
+
+//　最初は回答ボタンをオフにしておく。（Start(Next)を押すとオン）
+quizBtns.forEach((btn)=>{
+    btn.disabled = true;
 })
 
 // 正解したら画像が変わってタネをもらえるよ
 quizBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
+        nextBtn.disabled = false;   //回答するとNextボタンが使える
+
         if (btn.value == "true") {
-            question.innerText = "Yay! Correct!"
-            hamster.setAttribute('src', "./img/happyHamster.jpeg")
+            // タネ増える
             let aSeed = document.createElement("img");
             aSeed.setAttribute('src', "./img/seed.jpeg");
             aSeed.style.width = "70px";
             seeds.append(aSeed);
+            // ハム喜ぶ
+            question.innerText = "Yay! Correct!";
+            hamster.setAttribute('src', "./img/happyHamster.jpeg");
 
         }
         else {
@@ -124,6 +147,7 @@ quizBtns.forEach((btn) => {
             hamster.setAttribute('src', "./img/sadHamster.jpeg")
         }
         
+        // 正解がピンクで表示され、回答ボタンをオフに
         quizBtns.forEach((btn)=>{
             btn.disabled = true;
             if(btn.value=="true"){
