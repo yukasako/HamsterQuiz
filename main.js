@@ -107,10 +107,10 @@ nextBtn.addEventListener("click", () => {
         }
         else if(seeds.childElementCount === 4){
             hamster.setAttribute('src', "./img/happyHamster.jpeg")
-            result.innerText = "Great!\n You got " + seeds.childElementCount + " seeds!\n Good job hooman";
+            result.innerText = "Great!\n You got " + seeds.childElementCount + " seeds!\n Good job hooman :)";
         }
         else if(seeds.childElementCount >= 2){
-            result.innerText = "Nice!\n You got " + seeds.childElementCount + " seeds!\n Not bad hooman";
+            result.innerText = "Nice!\n You got " + seeds.childElementCount + " seeds!\n Not bad hooman :)";
         }
         else if(seeds.childElementCount === 1){
             hamster.setAttribute('src', "./img/sadHamster.jpeg")
@@ -118,7 +118,7 @@ nextBtn.addEventListener("click", () => {
         }
         else{
             hamster.setAttribute('src', "./img/sadHamster.jpeg")
-            result.innerText = "What!? 0 seed?\n Where is my food hooman!?";
+            result.innerText = "What!? No seed?\n Where is my food hooman!?";
         }
     }
 })
