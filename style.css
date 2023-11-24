@@ -2,6 +2,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100vw;
 
     #hamster{
         height: 40vh;
@@ -45,4 +46,12 @@ button:hover{
 
 #next{
     margin: 50px;
+}
+
+@media screen and (max-width: 600px){
+    #buttons{
+        display: flex;
+        flex-direction: column;
+    }    
+
 }
