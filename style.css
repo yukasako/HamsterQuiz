@@ -58,6 +58,9 @@ button:hover{
     #hamster{
         width: 70vw;
         height: auto;
-    }    
+    }
+    button:hover{
+        background-color: initial;
+    }
 
 }
