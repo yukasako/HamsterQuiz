@@ -111,13 +111,16 @@ nextBtn.addEventListener("click", () => {
 quizBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
         if (btn.value == "true") {
+            question.innerText = "Yay! Correct!"
             hamster.setAttribute('src', "./img/happyHamster.jpeg")
             let aSeed = document.createElement("img");
             aSeed.setAttribute('src', "./img/seed.jpeg");
             aSeed.style.width = "70px";
             seeds.append(aSeed);
+
         }
         else {
+            question.innerText = "Ooops"
             hamster.setAttribute('src', "./img/sadHamster.jpeg")
         }
         
