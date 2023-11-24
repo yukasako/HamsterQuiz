@@ -14,10 +14,10 @@ let Questions = [
         button3: ["5-10 years", false]
     },
     {
-        Q: "How fast do hamster front teeth grow?",
-        button1: ["Every week", true],
-        button2: ["Every month", false],
-        button3: ["Every day", false]
+        Q: "How long do hamster front teeth grow per week?",
+        button1: ["1-2 mm", true],
+        button2: ["1-2 cm", false],
+        button3: ["5 cm", false]
     },
     {
         Q: "What color light are hamsters most sensitive to?",
