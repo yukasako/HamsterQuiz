@@ -158,7 +158,7 @@ quizBtns.forEach((btn) => {
         quizBtns.forEach((btn)=>{
             btn.disabled = true;
             if(btn.value=="true"){
-                btn.style.background = "lightpink";
+                btn.style.background = "lightblue";
             }
         })
     })
