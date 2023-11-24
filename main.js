@@ -2,9 +2,9 @@
 
 let Questions = [
     {
-        Q: "Which hamster is the smallest?",
-        button1: ["Golden", false],
-        button2: ["Roborovski", true],
+        Q: "Which hamster is the biggest?",
+        button1: ["Golden", true],
+        button2: ["Roborovski", false],
         button3: ["Djungarian", false]
     },
     {
