@@ -48,6 +48,7 @@ let quizDiv = document.querySelector("#quiz")
 let question = document.querySelector("#question")
 
 //　回答ボタンたち３個(div, button)
+let quizBtnDiv = document.querySelector("#buttons")
 let quizBtns = document.querySelectorAll("[name='quiz']")
 let btn1 = document.querySelector("#button1")
 let btn2 = document.querySelector("#button2")
@@ -62,6 +63,9 @@ let i = 0;
 nextBtn.addEventListener("click", () => {
     //回答しないと次に進めないようNextボタンをオフ
     nextBtn.disabled = true;
+
+    // クイズボタンボックスを表示
+    quizBtnDiv.style.display = "flex";
 
     //クイズボタンたちをオンに
     hamster.setAttribute('src', "./img/hamster.jpeg")
@@ -99,14 +103,14 @@ nextBtn.addEventListener("click", () => {
         // タネの数によって評価
         if(seeds.childElementCount === 5){
             hamster.setAttribute('src', "./img/happyHamster.jpeg")
-            result.innerText = "Amazing!\n You answered all questions!";
+            result.innerText = "Amazing!\n You answered all questions!\n Thank you hooman :)";
         }
         else if(seeds.childElementCount === 4){
             hamster.setAttribute('src', "./img/happyHamster.jpeg")
-            result.innerText = "Great!\n You got " + seeds.childElementCount + " seeds!";
+            result.innerText = "Great!\n You got " + seeds.childElementCount + " seeds!\n Good job hooman";
         }
         else if(seeds.childElementCount >= 2){
-            result.innerText = "Nice!\n You got " + seeds.childElementCount + " seeds!";
+            result.innerText = "Nice!\n You got " + seeds.childElementCount + " seeds!\n Not bad hooman";
         }
         else if(seeds.childElementCount === 1){
             hamster.setAttribute('src', "./img/sadHamster.jpeg")
@@ -125,6 +129,9 @@ nextBtn.addEventListener("click", () => {
 quizBtns.forEach((btn)=>{
     btn.disabled = true;
 })
+
+// 最初はクイズボタンボックスを非表示に
+quizBtnDiv.style.display = "none";
 
 // 正解したら画像が変わってタネをもらえるよ
 quizBtns.forEach((btn) => {
