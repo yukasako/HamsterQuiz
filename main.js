@@ -62,7 +62,7 @@ let nextBtn = document.querySelector("#next")
 let i = 0;
 nextBtn.addEventListener("click", () => {
     //回答しないと次に進めないようNextボタンをオフ
-    nextBtn.disabled = true;
+    nextBtn.style.display = "none";
 
     // クイズボタンボックスを表示
     quizBtnDiv.style.display = "flex";
@@ -136,7 +136,8 @@ quizBtnDiv.style.display = "none";
 // 正解したら画像が変わってタネをもらえるよ
 quizBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
-        nextBtn.disabled = false;   //回答するとNextボタンが使える
+        nextBtn.style.display = "block";   
+        //回答するとNextボタンが使える
 
         if (btn.value == "true") {
             // タネ増える
