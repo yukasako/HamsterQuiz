@@ -68,7 +68,7 @@ nextBtn.addEventListener("click", () => {
     quizBtnDiv.style.display = "flex";
 
     //クイズボタンたちをオンに
-    hamster.setAttribute('src', "./img/hamster.jpeg")
+    hamster.setAttribute('src', "./img/hamster.webp")
     quizBtns.forEach((btn)=>{
         btn.disabled = false;
         btn.style.background = "lightgrey";
@@ -102,22 +102,22 @@ nextBtn.addEventListener("click", () => {
 
         // タネの数によって評価
         if(seeds.childElementCount === 5){
-            hamster.setAttribute('src', "./img/happyHamster.jpeg")
+            hamster.setAttribute('src', "./img/happyHamster.webp")
             result.innerText = "Amazing!\n You answered all questions!\n Thank you hooman :)";
         }
         else if(seeds.childElementCount === 4){
-            hamster.setAttribute('src', "./img/happyHamster.jpeg")
+            hamster.setAttribute('src', "./img/happyHamster.webp")
             result.innerText = "Great!\n You got " + seeds.childElementCount + " seeds!\n Good job hooman :)";
         }
         else if(seeds.childElementCount >= 2){
             result.innerText = "Nice!\n You got " + seeds.childElementCount + " seeds!\n Not bad hooman :)";
         }
         else if(seeds.childElementCount === 1){
-            hamster.setAttribute('src', "./img/sadHamster.jpeg")
+            hamster.setAttribute('src', "./img/sadHamster.webp")
             result.innerText = "Oh no.\n Only " + seeds.childElementCount + " seed.\n I am hungryyyy!";
         }
         else{
-            hamster.setAttribute('src', "./img/sadHamster.jpeg")
+            hamster.setAttribute('src', "./img/sadHamster.webp")
             result.innerText = "What!? No seed?\n Where is my food hooman!?";
         }
     }
@@ -142,17 +142,17 @@ quizBtns.forEach((btn) => {
         if (btn.value == "true") {
             // タネ増える
             let aSeed = document.createElement("img");
-            aSeed.setAttribute('src', "./img/seed.jpeg");
+            aSeed.setAttribute('src', "./img/seed.webp");
             aSeed.style.width = "70px";
             seeds.append(aSeed);
             // ハム喜ぶ
             question.innerText = "Yay! Correct!";
-            hamster.setAttribute('src', "./img/happyHamster.jpeg");
+            hamster.setAttribute('src', "./img/happyHamster.webp");
 
         }
         else {
             question.innerText = "Ooops"
-            hamster.setAttribute('src', "./img/sadHamster.jpeg")
+            hamster.setAttribute('src', "./img/sadHamster.webp")
         }
         
         // 正解がピンクで表示され、回答ボタンをオフに

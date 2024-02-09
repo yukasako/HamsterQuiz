@@ -5,6 +5,7 @@ body{
     width: 100vw;
     font : black;
     font-family: 'Courier New', monospace;
+    padding-bottom: 20px;
 }
 
 #question{
